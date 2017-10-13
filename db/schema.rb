@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171011191325) do
+ActiveRecord::Schema.define(version: 20171011183230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20171011191325) do
     t.integer "clothes_balance"
     t.integer "active"
     t.string "status"
-    t.string "type"
+    t.string "member_type"
     t.string "referred_by"
     t.decimal "boost_credit"
     t.boolean "birthday_boost"
@@ -43,13 +43,6 @@ ActiveRecord::Schema.define(version: 20171011191325) do
     t.string "email"
     t.string "add_on"
     t.boolean "flagged_member"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "tests", force: :cascade do |t|
-    t.string "name"
-    t.string "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

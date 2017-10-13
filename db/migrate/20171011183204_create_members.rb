@@ -8,7 +8,7 @@ class CreateMembers < ActiveRecord::Migration[5.1]
       t.integer :clothes_balance
       t.integer :active
       t.string :status
-      t.string :type
+      t.string :member_type
       t.string :referred_by
       t.decimal :boost_credit
       t.boolean :birthday_boost
