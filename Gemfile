@@ -24,6 +24,7 @@ gem 'puma', '~> 3.7'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
+gem 'pry'
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem 'rails_admin', '~> 1.2'
 gem 'rails_admin_rollincode', '~> 1.0'

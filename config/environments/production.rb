@@ -79,5 +79,10 @@ Rails.application.configure do
   end
 
   # Do not dump schema after migrations.
+
+  # Paperclip config:
+  Paperclip.options.merge!(:command_path => "/usr/bin")
+  Paperclip.options[:image_magick_path] = "/opt/ImageMagick/bin"
+  Paperclip.options[:command_path] = "/opt/ImageMagick/bin"
   config.active_record.dump_schema_after_migration = false
 end

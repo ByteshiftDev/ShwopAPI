@@ -4,21 +4,33 @@ class ItemsController < ApplicationController
   # GET /items
   def index
     @items = Item.all
-
     render json: @items
   end
 
   # GET /items/1
   def show
+    if (@item.id.to_s.length) == 1
+      url_number = "00" + @item.id.to_s
+    elsif (@item.id.to_s.length) == 2
+      url_number = "0" + @item.id.to_s
+    else
+      url_number = @item.id.to_s.to_s
+    end
+    file_name = @item.picture_file_name.to_s
+    @item.update(url: "http://localhost:3000/system/items/pictures/000/000/#{url_number}/original/#{file_name}")
     render json: @item
   end
 
   # POST /items
   def create
     @item = Item.new(item_params)
+    # @item.update(url: "test")
 
     if @item.save
       render json: @item, status: :created, location: @item
+      # http://localhost:3000/system/items/pictures/000/000/003/original/USPWeather.jpg?1510952103
+      # @item.id
+      # @item.picture_file_name
     else
       render json: @item.errors, status: :unprocessable_entity
     end
