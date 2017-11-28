@@ -5,30 +5,30 @@ class ItemsController < ApplicationController
   def index
     @items = Item.all
     @items.each do |item|
-      if (item.id.to_s.length) == 1
-        url_number = "00" + item.id.to_s
-      elsif (item.id.to_s.length) == 2
-        url_number = "0" + item.id.to_s
-      else
-        url_number = item.id.to_s.to_s
-      end
-      file_name = item.picture_file_name.to_s
-      item.update(url: "http://localhost:3000/system/items/pictures/000/000/#{url_number}/original/#{file_name}")
+      # if (item.id.to_s.length) == 1
+      #   url_number = "00" + item.id.to_s
+      # elsif (item.id.to_s.length) == 2
+      #   url_number = "0" + item.id.to_s
+      # else
+      #   url_number = item.id.to_s.to_s
+      # end
+      # file_name = item.picture_file_name.to_s
+      # item.update(url: "http://localhost:3000/system/items/pictures/000/000/#{url_number}/original/#{file_name}")
     end
     render json: @items
   end
 
   # GET /items/1
   def show
-    if (@item.id.to_s.length) == 1
-      url_number = "00" + @item.id.to_s
-    elsif (@item.id.to_s.length) == 2
-      url_number = "0" + @item.id.to_s
-    else
-      url_number = @item.id.to_s.to_s
-    end
-    file_name = @item.picture_file_name.to_s
-    @item.update(url: "http://localhost:3000/system/items/pictures/000/000/#{url_number}/original/#{file_name}")
+    # if (@item.id.to_s.length) == 1
+    #   url_number = "00" + @item.id.to_s
+    # elsif (@item.id.to_s.length) == 2
+    #   url_number = "0" + @item.id.to_s
+    # else
+    #   url_number = @item.id.to_s.to_s
+    # end
+    # file_name = @item.picture_file_name.to_s
+    # @item.update(url: "http://localhost:3000/system/items/pictures/000/000/#{url_number}/original/#{file_name}")
     render json: @item
   end
 
