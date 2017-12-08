@@ -1,5 +1,11 @@
 class Item < ApplicationRecord
-  has_attached_file :picture, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  has_attached_file :picture,
+                  styles: { thumb: ["150x150#", :jpg],
+                  original: ['500x500>', :jpg] },
+                  default_url: "/images/:style/missing.png",
+                  convert_options: { thumb: "-quality 75 -strip",
+                                     original: "-quality 100 -strip" }
+
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\z/
 
   def add_url
@@ -14,10 +20,6 @@ class Item < ApplicationRecord
     self.update(url: "http://localhost:3000/system/items/pictures/000/000/#{url_number}/original/#{file_name}")
   end
 
-  def test_method
-    puts "*****************************************************"
-    puts self.name
-    puts "*****************************************************"
-  end
+  
 
 end
