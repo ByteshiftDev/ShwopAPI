@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20171011183230) do
     t.datetime "picture_updated_at"
     t.boolean "featured"
     t.string "url"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

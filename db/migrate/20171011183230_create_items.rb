@@ -8,6 +8,7 @@ class CreateItems < ActiveRecord::Migration[5.1]
       t.attachment :picture
       t.boolean :featured
       t.string :url
+      t.string :description
 
       t.timestamps
     end
