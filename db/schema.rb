@@ -10,12 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171208184618) do
+ActiveRecord::Schema.define(version: 20171011183230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "items", force: :cascade do |t|
+    t.integer "key"
+    t.string "category"
     t.decimal "price"
     t.string "name"
     t.string "picture_file_name"
@@ -23,12 +25,13 @@ ActiveRecord::Schema.define(version: 20171208184618) do
     t.integer "picture_file_size"
     t.datetime "picture_updated_at"
     t.boolean "featured"
+    t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "url"
   end
 
   create_table "members", force: :cascade do |t|
+    t.integer "key"
     t.date "start_date"
     t.date "end_date"
     t.string "first_name"
@@ -44,9 +47,9 @@ ActiveRecord::Schema.define(version: 20171208184618) do
     t.string "email"
     t.string "add_on"
     t.boolean "flagged_member"
+    t.string "first_password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "first_password"
   end
 
 end

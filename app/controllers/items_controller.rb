@@ -14,6 +14,7 @@ class ItemsController < ApplicationController
       # end
       # file_name = item.picture_file_name.to_s
       # item.update(url: "http://localhost:3000/system/items/pictures/000/000/#{url_number}/original/#{file_name}")
+      item.add_key
       item.add_url
     end
     render json: @items
@@ -31,6 +32,7 @@ class ItemsController < ApplicationController
     # file_name = @item.picture_file_name.to_s
     # @item.update(url: "http://localhost:3000/system/items/pictures/000/000/#{url_number}/original/#{file_name}")
     @item.add_url
+    @item.add_key
     render json: @item
   end
 

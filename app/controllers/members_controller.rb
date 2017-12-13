@@ -5,11 +5,16 @@ class MembersController < ApplicationController
   def index
     @members = Member.all
 
+    @members.each do |member|
+      member.add_key
+    end
+
     render json: @members
   end
 
   # GET /members/1
   def show
+    @member.add_key
     render json: @member
   end
 

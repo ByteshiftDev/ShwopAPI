@@ -20,6 +20,10 @@ class Item < ApplicationRecord
     self.update(url: "http://localhost:3000/system/items/pictures/000/000/#{url_number}/original/#{file_name}")
   end
 
+  def add_key
+    self.key = self.id
+  end
+
 
 
 end
