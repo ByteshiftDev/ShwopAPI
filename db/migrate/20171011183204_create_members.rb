@@ -14,10 +14,13 @@ class CreateMembers < ActiveRecord::Migration[5.1]
       t.decimal :boost_credit
       t.boolean :birthday_boost
       t.decimal :cost
-      t.string :email
+      t.string :email,              null: false
       t.string :add_on
       t.boolean :flagged_member
-      t.string :first_password
+      t.string :password_digest,    null: false
+      t.string :confirmation_token
+      t.datetime :confirmed_at
+      t.datetime :confirmation_sent_at
 
       t.timestamps
     end

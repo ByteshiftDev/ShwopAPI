@@ -45,10 +45,13 @@ ActiveRecord::Schema.define(version: 20171011183230) do
     t.decimal "boost_credit"
     t.boolean "birthday_boost"
     t.decimal "cost"
-    t.string "email"
+    t.string "email", null: false
     t.string "add_on"
     t.boolean "flagged_member"
-    t.string "first_password"
+    t.string "password_digest", null: false
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

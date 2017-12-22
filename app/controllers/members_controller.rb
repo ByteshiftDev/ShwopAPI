@@ -23,6 +23,8 @@ class MembersController < ApplicationController
     @member = Member.new(member_params)
 
     if @member.save
+      # Invoke send email method here
+      # member.confirmation_token
       render json: @member, status: :created, location: @member
     else
       render json: @member.errors, status: :unprocessable_entity
@@ -43,14 +45,28 @@ class MembersController < ApplicationController
     @member.destroy
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_member
-      @member = Member.find(params[:id])
-    end
+  def confirm
+    token = params[:token].to_s
 
-    # Only allow a trusted parameter "white list" through.
-    def member_params
-      params.fetch(:member, {})
+    member = Member.find_by(confirmation_token: token)
+
+    if member.present? && member.confirmation_token_valid?
+      member.mark_as_confirmed!
+      render json: {status: 'Member confirmed successfully'}, status: :ok
+    else
+      render json: {status: 'Invalid token'}, status: :not_found
     end
+  end
+
+private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_member
+    @member = Member.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def member_params
+    params.fetch(:member, {})
+  end
+
 end

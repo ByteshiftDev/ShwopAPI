@@ -28,6 +28,10 @@ gem 'pry'
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem 'rails_admin', '~> 1.2'
 gem 'rails_admin_rollincode', '~> 1.0'
+# gem 'bcrypt', '~> 3.1.11'
+# gem 'devise', '~> 4.3.0'
+# gem 'omniauth'
+gem 'devise_token_auth', '~> 0.1.42'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
