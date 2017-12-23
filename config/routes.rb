@@ -2,9 +2,10 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :items
-  resources :members
+  resources :members do
     collection do
       post 'confirm'
+      post 'login'
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

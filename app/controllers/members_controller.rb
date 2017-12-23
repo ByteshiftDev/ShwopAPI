@@ -58,6 +58,17 @@ class MembersController < ApplicationController
     end
   end
 
+  def login
+    member = Member.find_by(email: params[:email].to_s.downcase)
+
+    if member && member.authenticate(params[:password])
+      auth_token = JsonWebToken.encode({member_id: member.id})
+      render json: {auth_token: auth_token}, status: :ok
+    else
+      render json: {error: 'Invalid membername / password'}, status: :unauthorized
+    end
+  end
+
 private
   # Use callbacks to share common setup or constraints between actions.
   def set_member
