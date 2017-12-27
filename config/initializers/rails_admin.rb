@@ -1,5 +1,26 @@
 RailsAdmin.config do |config|
 
+  config.model 'Member' do
+    list do
+      field :first_name
+      field :last_name
+      field :email
+      field :start_date
+      field :end_date
+      field :clothes_balance
+    end
+
+    edit do
+      field :first_name
+      field :last_name
+      field :email
+      field :password
+      field :start_date
+      field :end_date
+      field :clothes_balance
+    end
+  end
+
   ### Popular gems integration
 
   ## == Devise ==
