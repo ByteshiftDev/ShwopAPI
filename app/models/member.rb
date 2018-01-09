@@ -1,5 +1,4 @@
 class Member < ApplicationRecord
-  has_secure_password
 
   validates :first_name, presence: true
   validates :last_name, presence: true
@@ -8,16 +7,16 @@ class Member < ApplicationRecord
   validates_format_of :email, with: /@/
 
   before_save :downcase_email
-  before_create :generate_confirmation_instructions
+  # before_create :generate_confirmation_instructions
 
   def downcase_email
     self.email = self.email.delete(' ').downcase
   end
 
-  def generate_confirmation_instructions
-    self.confirmation_token = SecureRandom.hex(10)
-    self.confirmation_sent_at = Time.now.utc
-  end
+  # def generate_confirmation_instructions
+  #   self.confirmation_token = SecureRandom.hex(10)
+  #   self.confirmation_sent_at = Time.now.utc
+  # end
 
   def add_key
     self.key = self.id
