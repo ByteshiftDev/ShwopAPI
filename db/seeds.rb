@@ -40,6 +40,8 @@ csv.each do |row|
   m.cost = row['Cost']
   m.email = row['Email']
   m.add_on = row['Add On']
+  m.flagged_member = false
+  m.password = "shwop1"
   m.save
   p "#{m.first_name} #{m.last_name} saved"
 end
