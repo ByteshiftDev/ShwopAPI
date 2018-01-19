@@ -17,7 +17,7 @@ class Item < ApplicationRecord
       url_number = self.id.to_s.to_s
     end
     file_name = self.picture_file_name.to_s
-    self.update(url: "http://localhost:3000/system/items/pictures/000/000/#{url_number}/original/#{file_name}")
+    self.update(url: "https://shwop-api.herokuapp.com/system/items/pictures/000/000/#{url_number}/original/#{file_name}")
   end
 
   def add_key
